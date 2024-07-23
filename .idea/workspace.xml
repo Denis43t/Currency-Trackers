@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f12725e-d039-4e68-8d6c-277d0525a61a" name="Changes" comment="new">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/BankApi.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/BotApi20.java" afterDir="false" />
+    <list default="true" id="6f12725e-d039-4e68-8d6c-277d0525a61a" name="Changes" comment="new1">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,11 +80,28 @@
       <option name="project" value="LOCAL" />
       <updated>1721333377712</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="new1">
+      <option name="closed" value="true" />
+      <created>1721757129999</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1721757129999</updated>
+    </task>
+    <task id="LOCAL-00004" summary="new1">
+      <option name="closed" value="true" />
+      <created>1721757264175</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1721757264175</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="new" />
-    <option name="LAST_COMMIT_MESSAGE" value="new" />
+    <MESSAGE value="new1" />
+    <option name="LAST_COMMIT_MESSAGE" value="new1" />
   </component>
 </project>
