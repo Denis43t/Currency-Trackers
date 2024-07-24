@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f12725e-d039-4e68-8d6c-277d0525a61a" name="Changes" comment="add all">
+    <list default="true" id="6f12725e-d039-4e68-8d6c-277d0525a61a" name="Changes" comment="USD та EUR для НБУ">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Settings.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/BankApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/BankApi.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/BotApi20.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/BotApi20.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -165,13 +165,31 @@
       <option name="project" value="LOCAL" />
       <updated>1721835894368</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="USD та EUR для НБУ">
+      <option name="closed" value="true" />
+      <created>1721843410672</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1721843410672</updated>
+    </task>
+    <task id="LOCAL-00010" summary="USD та EUR для НБУ">
+      <option name="closed" value="true" />
+      <created>1721843444558</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1721843444558</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="new" />
     <MESSAGE value="new1" />
+    <MESSAGE value="Додав фільтр, щоб НБУ брав інфо тільки про USD та EUR" />
     <MESSAGE value="add all" />
-    <option name="LAST_COMMIT_MESSAGE" value="add all" />
+    <MESSAGE value="USD та EUR для НБУ" />
+    <option name="LAST_COMMIT_MESSAGE" value="USD та EUR для НБУ" />
   </component>
 </project>
