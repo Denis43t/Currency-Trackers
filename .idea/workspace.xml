@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f12725e-d039-4e68-8d6c-277d0525a61a" name="Changes" comment="USD та EUR для НБУ">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Settings.java" afterDir="false" />
+    <list default="true" id="6f12725e-d039-4e68-8d6c-277d0525a61a" name="Changes" comment="Додав клас Settings">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/BotApi20.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/BotApi20.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,6 +46,7 @@
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/akorn/Goit/Currency-Trackers/pom.xml",
     "onboarding.tips.debug.path": "C:/Users/akorn/Goit/Currency-Trackers/src/main/java/org/example/Main.java",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
@@ -63,6 +64,8 @@
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="21" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="org.example.Main" />
       <module name="ForexFriend" />
       <extension name="coverage">
@@ -181,7 +184,39 @@
       <option name="project" value="LOCAL" />
       <updated>1721843444558</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Додав клас Settings">
+      <option name="closed" value="true" />
+      <created>1721844998783</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1721844998783</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Додав клас Settings">
+      <option name="closed" value="true" />
+      <created>1721845056644</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1721845056644</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Додав клас Settings">
+      <option name="closed" value="true" />
+      <created>1721845176824</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1721845176824</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Додав клас Settings">
+      <option name="closed" value="true" />
+      <created>1721845188604</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1721845188604</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -190,6 +225,7 @@
     <MESSAGE value="Додав фільтр, щоб НБУ брав інфо тільки про USD та EUR" />
     <MESSAGE value="add all" />
     <MESSAGE value="USD та EUR для НБУ" />
-    <option name="LAST_COMMIT_MESSAGE" value="USD та EUR для НБУ" />
+    <MESSAGE value="Додав клас Settings" />
+    <option name="LAST_COMMIT_MESSAGE" value="Додав клас Settings" />
   </component>
 </project>
