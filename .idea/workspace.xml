@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f12725e-d039-4e68-8d6c-277d0525a61a" name="Changes" comment="new1">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+    <list default="true" id="6f12725e-d039-4e68-8d6c-277d0525a61a" name="Changes" comment="add all">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/BankApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/BankApi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/BotApi20.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/BotApi20.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -158,12 +157,21 @@
       <option name="project" value="LOCAL" />
       <updated>1721829870176</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="add all">
+      <option name="closed" value="true" />
+      <created>1721835894368</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1721835894368</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="new" />
     <MESSAGE value="new1" />
-    <option name="LAST_COMMIT_MESSAGE" value="new1" />
+    <MESSAGE value="add all" />
+    <option name="LAST_COMMIT_MESSAGE" value="add all" />
   </component>
 </project>

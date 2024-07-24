@@ -117,11 +117,14 @@ public class BankApi {
         for (JsonNode rate : node) {
             String currency = rate.get("cc").asText();
             double rateValue = rate.get("rate").asDouble();
-            result.append(String.format("%s/UAH: %.2f\n", currency, rateValue));
+            if ("USD".equals(currency) || "EUR".equals(currency)) {
+                result.append(String.format("%s/UAH: %.2f\n", currency, rateValue));
+            }
         }
 
         return result.toString();
     }
+
 
     private String getCurrencyCode(int code) {
         switch (code) {
@@ -134,4 +137,3 @@ public class BankApi {
         }
     }
 }
-
