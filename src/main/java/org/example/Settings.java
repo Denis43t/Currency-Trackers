@@ -10,34 +10,51 @@ import org.telegram.telegrambots.meta.generics.TelegramClient;
 public class Settings {
 
     private final TelegramClient telegramClient;
+    private Currency selectedCurrency = Currency.BOTH;
 
     public Settings(TelegramClient telegramClient) {
         this.telegramClient = telegramClient;
     }
 
+    public Currency getCurrency() {
+        return selectedCurrency;
+    }
+
+    public void setCurrencySelection(String callData) {
+        switch (callData) {
+            case "settings_currency_usd":
+                selectedCurrency = Currency.USD;
+                break;
+            case "settings_currency_eur":
+                selectedCurrency = Currency.EUR;
+                break;
+            case "settings_currency_both":
+                selectedCurrency = Currency.BOTH;
+                break;
+        }
+    }
+
     public void handleSettings(long chatId, long messageId) {
-        // Create the buttons
         InlineKeyboardButton button1 = InlineKeyboardButton.builder()
                 .text("Кількість знаків після коми")
-                .callbackData("settings_1")
+                .callbackData("settings_precision")
                 .build();
 
         InlineKeyboardButton button2 = InlineKeyboardButton.builder()
                 .text("Валюта")
-                .callbackData("settings_2")
+                .callbackData("settings_currency")
                 .build();
 
         InlineKeyboardButton button3 = InlineKeyboardButton.builder()
                 .text("Банк")
-                .callbackData("settings_3")
+                .callbackData("settings_bank")
                 .build();
 
         InlineKeyboardButton button4 = InlineKeyboardButton.builder()
                 .text("Час сповіщень")
-                .callbackData("settings_4")
+                .callbackData("settings_notification_time")
                 .build();
 
-        // Create keyboard rows
         InlineKeyboardRow row1 = new InlineKeyboardRow();
         row1.add(button1);
         row1.add(button2);
@@ -46,17 +63,54 @@ public class Settings {
         row2.add(button3);
         row2.add(button4);
 
-        // Create keyboard markup
         InlineKeyboardMarkup keyboardMarkup = InlineKeyboardMarkup.builder()
                 .keyboardRow(row1)
                 .keyboardRow(row2)
                 .build();
 
-        // Create a message with the keyboard
         EditMessageText newMessage = EditMessageText.builder()
                 .chatId(chatId)
                 .messageId((int) messageId)
                 .text("Оберіть один з параметрів налаштування:")
+                .replyMarkup(keyboardMarkup)
+                .build();
+
+        try {
+            telegramClient.execute(newMessage);
+        } catch (TelegramApiException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void handleCurrencySettings(long chatId, long messageId) {
+        InlineKeyboardButton button1 = InlineKeyboardButton.builder()
+                .text("USD")
+                .callbackData("settings_currency_usd")
+                .build();
+
+        InlineKeyboardButton button2 = InlineKeyboardButton.builder()
+                .text("EUR")
+                .callbackData("settings_currency_eur")
+                .build();
+
+        InlineKeyboardButton button3 = InlineKeyboardButton.builder()
+                .text("Both")
+                .callbackData("settings_currency_both")
+                .build();
+
+        InlineKeyboardRow row1 = new InlineKeyboardRow();
+        row1.add(button1);
+        row1.add(button2);
+        row1.add(button3);
+
+        InlineKeyboardMarkup keyboardMarkup = InlineKeyboardMarkup.builder()
+                .keyboardRow(row1)
+                .build();
+
+        EditMessageText newMessage = EditMessageText.builder()
+                .chatId(chatId)
+                .messageId((int) messageId)
+                .text("Оберіть валюту:")
                 .replyMarkup(keyboardMarkup)
                 .build();
 
