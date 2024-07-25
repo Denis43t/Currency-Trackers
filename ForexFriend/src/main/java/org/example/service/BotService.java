@@ -1,5 +1,6 @@
 package org.example.service;
 
+import org.example.properties.Constants;
 import org.telegram.telegrambots.client.okhttp.OkHttpTelegramClient;
 import org.telegram.telegrambots.longpolling.util.LongPollingSingleThreadUpdateConsumer;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
@@ -13,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BotService implements LongPollingSingleThreadUpdateConsumer {
-    private TelegramClient telegramClient = new OkHttpTelegramClient
+    private final TelegramClient telegramClient = new OkHttpTelegramClient
             (System.getenv("BOT_TOKEN"));
 
     @Override
@@ -22,14 +23,22 @@ public class BotService implements LongPollingSingleThreadUpdateConsumer {
 
             SendMessage sendMessage = new SendMessage(update.getMessage().getChatId().toString()
                     , update.getMessage().getText());
-
-            if (sendMessage.getText().equals("час")) {
-                sendCustomKeyboard(sendMessage.getChatId());
+            //надає клавіатуру як що був веден час
+            if (sendMessage.getText().equalsIgnoreCase("час")) {
+                sendCustomKeyboardTime(sendMessage.getChatId());
             }
         }
     }
 
-    public void sendCustomKeyboard(String chatId) {
+    //перевіряє чи був введен час для свопіщення
+    public String getTimeOfSendingNotifications(SendMessage message){
+        if (Constants.variantsOfTime.stream().anyMatch(t->t.equals(message.getText()))){
+            return message.getText();
+        }
+        return "-1";
+    }
+    //створює клавіатуру для вибору часу
+    public void sendCustomKeyboardTime(String chatId) {
         SendMessage message = new SendMessage(chatId, "оберіть час оповіщення");
 
         List<KeyboardRow> keyboard = new ArrayList<>();
