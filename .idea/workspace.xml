@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f12725e-d039-4e68-8d6c-277d0525a61a" name="Changes" comment="Додав клас Settings">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/BankService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/BotService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Currency.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/BankApi.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/BotApi20.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Settings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Settings.java" afterDir="false" />
+
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,7 +14,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
+
         <option value="Class" />
       </list>
     </option>
@@ -30,48 +22,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="Task_Artem" />
-      </map>
-    </option>
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 3
-}</component>
-  <component name="ProjectId" id="2jQxWzgVCP7hWiGrErri3HDVOSv" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
-  <component name="ProjectViewState">
-    <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showLibraryContents" value="true" />
-  </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Service.Main.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/akorn/Goit/Currency-Trackers/pom.xml&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/akorn/Goit/Currency-Trackers/src/main/java/org/example/Main.java&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
-  }
-}</component>
-  <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="org.example" />
-    </key>
-    <key name="ExtractSuperBase.RECENT_KEYS">
-      <recent name="org.example" />
-    </key>
-  </component>
-  <component name="RunManager">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="ALTERNATIVE_JRE_PATH" value="21" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+
       <option name="MAIN_CLASS_NAME" value="org.example.Main" />
       <module name="ForexFriend" />
       <extension name="coverage">
@@ -84,178 +35,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="JetRunConfigurationType">
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <option name="filePath" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
-  <component name="TaskManager">
-    <task active="true" id="Default" summary="Default task">
-      <changelist id="6f12725e-d039-4e68-8d6c-277d0525a61a" name="Changes" comment="" />
-      <created>1721333138054</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-      <updated>1721333138054</updated>
-    </task>
-    <task id="LOCAL-00001" summary="new">
-      <option name="closed" value="true" />
-      <created>1721333201750</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1721333201750</updated>
-    </task>
-    <task id="LOCAL-00002" summary="new">
-      <option name="closed" value="true" />
-      <created>1721333377712</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1721333377712</updated>
-    </task>
-    <task id="LOCAL-00003" summary="new1">
-      <option name="closed" value="true" />
-      <created>1721757129999</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1721757129999</updated>
-    </task>
-    <task id="LOCAL-00004" summary="new1">
-      <option name="closed" value="true" />
-      <created>1721757264175</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1721757264175</updated>
-    </task>
-    <task id="LOCAL-00005" summary="new1">
-      <option name="closed" value="true" />
-      <created>1721758365152</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1721758365152</updated>
-    </task>
-    <task id="LOCAL-00006" summary="new1">
-      <option name="closed" value="true" />
-      <created>1721829820818</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1721829820818</updated>
-    </task>
-    <task id="LOCAL-00007" summary="new1">
-      <option name="closed" value="true" />
-      <created>1721829870176</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1721829870176</updated>
-    </task>
-    <task id="LOCAL-00008" summary="add all">
-      <option name="closed" value="true" />
-      <created>1721835894368</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1721835894368</updated>
-    </task>
-    <task id="LOCAL-00009" summary="USD та EUR для НБУ">
-      <option name="closed" value="true" />
-      <created>1721843410672</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1721843410672</updated>
-    </task>
-    <task id="LOCAL-00010" summary="USD та EUR для НБУ">
-      <option name="closed" value="true" />
-      <created>1721843444558</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1721843444558</updated>
-    </task>
-    <task id="LOCAL-00011" summary="Додав клас Settings">
-      <option name="closed" value="true" />
-      <created>1721844998783</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1721844998783</updated>
-    </task>
-    <task id="LOCAL-00012" summary="Додав клас Settings">
-      <option name="closed" value="true" />
-      <created>1721845056644</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1721845056644</updated>
-    </task>
-    <task id="LOCAL-00013" summary="Додав клас Settings">
-      <option name="closed" value="true" />
-      <created>1721845176824</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1721845176824</updated>
-    </task>
-    <task id="LOCAL-00014" summary="Додав клас Settings">
-      <option name="closed" value="true" />
-      <created>1721845188604</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1721845188604</updated>
-    </task>
-    <task id="LOCAL-00015" summary="Додав клас Settings">
-      <option name="closed" value="true" />
-      <created>1721847373284</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1721847373284</updated>
-    </task>
-    <task id="LOCAL-00016" summary="Додав клас Settings">
-      <option name="closed" value="true" />
-      <created>1721847707531</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1721847707531</updated>
-    </task>
-    <task id="LOCAL-00017" summary="Додав клас Settings">
-      <option name="closed" value="true" />
-      <created>1721847954880</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1721847954880</updated>
-    </task>
-    <option name="localTasksCounter" value="18" />
-    <servers />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="new" />
-    <MESSAGE value="new1" />
-    <MESSAGE value="Додав фільтр, щоб НБУ брав інфо тільки про USD та EUR" />
-    <MESSAGE value="add all" />
-    <MESSAGE value="USD та EUR для НБУ" />
-    <MESSAGE value="Додав клас Settings" />
-    <option name="LAST_COMMIT_MESSAGE" value="Додав клас Settings" />
+
   </component>
 </project>
