@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2ab066f9-ace8-4f78-9656-d6487ecf99a3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/ForexFriend/src/main/java/org/example/properties/Constants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForexFriend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ForexFriend/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForexFriend/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/ForexFriend/src/main/java/org/example/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForexFriend/src/main/java/org/example/service/BotService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ForexFriend/src/main/java/org/example/service/BotService.java" afterDir="false" />
+
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +14,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+
         <option value="Class" />
       </list>
     </option>
@@ -26,26 +22,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
-      </map>
-    </option>
-  </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Application.Main.executor": "Run",
-    "git-widget-placeholder": "TimeButton"
-  }
-}]]></component>
-  <component name="RunManager">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <envs>
-        <env name="BOT_TOKEN" value="7153315858:AAE04w4SdLohgVTXUh337weQ2lB1UzNevIg" />
-      </envs>
+
       <option name="MAIN_CLASS_NAME" value="org.example.Main" />
       <module name="ForexFriend" />
       <extension name="coverage">
@@ -58,28 +35,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
-  <component name="TaskManager">
-    <servers />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/ForexFriend/src/main/java/org/example/service/BotService.java</url>
-          <line>21</line>
-          <properties class="org.example.service.BotService" method="consume">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+
   </component>
 </project>
