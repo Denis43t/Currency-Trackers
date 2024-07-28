@@ -5,9 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a0d4573c-8a22-47fb-a091-6ef2400ad659" name="Changes" comment="sendMessage replaced to Buttons">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForexFriend/src/main/java/org/example/service/BotService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ForexFriend/src/main/java/org/example/service/BotService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ForexFriend/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ForexFriend/src/main/java/org/example/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ForexFriend/src/main/java/org/example/properties/Constants.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ForexFriend/src/main/java/org/example/service/BankService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ForexFriend/src/main/java/org/example/service/BotService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ForexFriend/src/main/java/org/example/utils/Buttons.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ForexFriend/src/main/java/org/example/utils/Currency.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,7 +26,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="SendingNotifications" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -50,14 +59,18 @@
     "Application.Main.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true"
+    "git-widget-placeholder": "mainArt",
+    "kotlin-language-version-configured": "true",
+    "onboarding.tips.debug.path": "C:/Users/akorn/Goit/ForexFriend/src/main/java/org/example/Main.java",
+    "project.structure.last.edited": "SDKs",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2"
   }
 }]]></component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <envs>
-        <env name="BOT_TOKEN" value="7153315858:AAE04w4SdLohgVTXUh337weQ2lB1UzNevIg" />
+        <env name="BOT_TOKEN" value="7409037172:AAF_-HAE_QCbnirDpo1OGg9YNZpH304sBcI" />
       </envs>
       <option name="MAIN_CLASS_NAME" value="org.example.Main" />
       <module name="ForexFriend" />
@@ -73,6 +86,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.Main" />
