@@ -1,4 +1,4 @@
-package org.example;
+package org.example.utils;
 
 import org.telegram.telegrambots.meta.api.methods.updatingmessages.EditMessageText;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMarkup;
@@ -7,12 +7,12 @@ import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.InlineKe
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import org.telegram.telegrambots.meta.generics.TelegramClient;
 
-public class Settings {
+public class Buttons {
 
     private final TelegramClient telegramClient;
     private Currency selectedCurrency = Currency.BOTH;
 
-    public Settings(TelegramClient telegramClient) {
+    public Buttons(TelegramClient telegramClient) {
         this.telegramClient = telegramClient;
     }
 

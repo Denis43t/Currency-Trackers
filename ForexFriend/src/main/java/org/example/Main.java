@@ -10,8 +10,12 @@ public class Main {
             String botToken =System.getenv("BOT_TOKEN");
             TelegramBotsLongPollingApplication botsApplication = new TelegramBotsLongPollingApplication();
             botsApplication.registerBot(botToken, new BotService());
+            System.out.println("BotService successfully started!");
+            Thread.currentThread().join();
         } catch (TelegramApiException e) {
             e.printStackTrace();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
         }
     }
 }
