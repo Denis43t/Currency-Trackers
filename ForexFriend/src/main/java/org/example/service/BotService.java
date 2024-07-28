@@ -25,6 +25,7 @@ public class BotService implements LongPollingSingleThreadUpdateConsumer {
     private final TelegramClient telegramClient = new OkHttpTelegramClient
             (System.getenv("BOT_TOKEN"));
 
+    Buttons buttons =new Buttons(telegramClient);
     @Override
     public void consume(Update update) {
         if (update.hasMessage() && update.getMessage().hasText()) {
@@ -53,14 +54,14 @@ public class BotService implements LongPollingSingleThreadUpdateConsumer {
                     sendExchangeRates(chatId, messageId);
                     break;
                 case "settings":
-                    settings.handleSettings(chatId, messageId);
+                    buttons.handleSettings(chatId, messageId);
                     break;
                 case "settings_currency":
-                    settings.handleCurrencySettings(chatId, messageId);
+                    buttons.handleCurrencySettings(chatId, messageId);
                     break;
                 default:
                     if (callData.startsWith("settings_currency_")) {
-                        settings.setCurrencySelection(callData);
+                        buttons.setCurrencySelection(callData);
                         sendExchangeRates(chatId, messageId);
                     }
                     break;
@@ -153,7 +154,7 @@ public class BotService implements LongPollingSingleThreadUpdateConsumer {
         String answer;
         try {
             BankService bankApi = new BankService();
-            answer = bankApi.getExchangeRates(settings.getCurrency());
+            answer = bankApi.getExchangeRates(buttons.getCurrency());
         } catch (IOException e) {
             answer = "Не вдалося отримати курс валют. Спробуйте пізніше.";
             e.printStackTrace();
