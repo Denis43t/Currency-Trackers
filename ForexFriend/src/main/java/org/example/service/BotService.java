@@ -20,7 +20,7 @@ public class BotService implements LongPollingSingleThreadUpdateConsumer {
     private final TelegramClient telegramClient = new OkHttpTelegramClient
             (System.getenv("BOT_TOKEN"));
     private HashMap<String, String> userSettings = new HashMap<>();
-    private Date date = new Date();
+
     private ConcurrentHashMap<String, Thread> runningThreads = new ConcurrentHashMap<>();
 
 
@@ -102,12 +102,16 @@ public class BotService implements LongPollingSingleThreadUpdateConsumer {
 
         Thread senderScheduleCurrencyRate = new Thread(() -> {
             while (true) {
+                Date date = new Date();
                 String hours = String.valueOf(date.getHours());
                 if (hours.equals(userSettings.get(chatId))) {
-                    if (date.getMinutes() == 0) {
+                    if (date.getMinutes() == 10) {
                         try {
                             telegramClient.execute(sendMessage);
+                            Thread.sleep(1000*60);
                         } catch (TelegramApiException e) {
+                            throw new RuntimeException(e);
+                        } catch (InterruptedException e) {
                             throw new RuntimeException(e);
                         }
                     }
