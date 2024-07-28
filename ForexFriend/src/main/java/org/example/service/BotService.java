@@ -11,11 +11,18 @@ import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import org.telegram.telegrambots.meta.generics.TelegramClient;
 
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class BotService implements LongPollingSingleThreadUpdateConsumer {
     private final TelegramClient telegramClient = new OkHttpTelegramClient
             (System.getenv("BOT_TOKEN"));
+    private HashMap<String, String> userSettings = new HashMap<>();
+    private Date date = new Date();
+    private ConcurrentHashMap<String, Thread> runningThreads = new ConcurrentHashMap<>();
+
 
     @Override
     public void consume(Update update) {
@@ -23,20 +30,23 @@ public class BotService implements LongPollingSingleThreadUpdateConsumer {
 
             SendMessage sendMessage = new SendMessage(update.getMessage().getChatId().toString()
                     , update.getMessage().getText());
+            userSettings.put(sendMessage.getChatId(), getTimeOfSendingNotifications(sendMessage));
             //надає клавіатуру як що був веден час
             if (sendMessage.getText().equalsIgnoreCase("час")) {
                 sendCustomKeyboardTime(sendMessage.getChatId());
             }
+            scheduleSendingCurrencyRate(userSettings, sendMessage.getChatId());
         }
     }
 
     //перевіряє чи був введен час для свопіщення
-    public String getTimeOfSendingNotifications(SendMessage message){
-        if (Constants.variantsOfTime.stream().anyMatch(t->t.equals(message.getText()))){
+    public String getTimeOfSendingNotifications(SendMessage message) {
+        if (Constants.variantsOfTime.stream().anyMatch(t -> t.equals(message.getText()))) {
             return message.getText();
         }
         return "-1";
     }
+
     //створює клавіатуру для вибору часу
     public void sendCustomKeyboardTime(String chatId) {
         SendMessage message = new SendMessage(chatId, "оберіть час оповіщення");
@@ -79,24 +89,40 @@ public class BotService implements LongPollingSingleThreadUpdateConsumer {
         }
     }
 
-    public void sst(SendMessage time, String chatId){
-        SendMessage sendMessage=new SendMessage("aaa",chatId);
-        Thread stts = new Thread(() -> {
+    public void scheduleSendingCurrencyRate(HashMap userSettings, String chatId) {
+        if (userSettings.get(chatId).equals("-1") || userSettings.get(chatId) == null) {
+            return;
+        }
+
+        if (runningThreads.containsKey(chatId) && runningThreads.get(chatId).isAlive()) {
+            return;
+        }
+
+        SendMessage sendMessage = new SendMessage(chatId, "aaa");
+
+        Thread senderScheduleCurrencyRate = new Thread(() -> {
             while (true) {
-                if ("16".equals(time)){
+                String hours = String.valueOf(date.getHours());
+                if (hours.equals(userSettings.get(chatId))) {
+                    if (date.getMinutes() == 0) {
+                        try {
+                            telegramClient.execute(sendMessage);
+                        } catch (TelegramApiException e) {
+                            throw new RuntimeException(e);
+                        }
+                    }
                     try {
-                        telegramClient.execute(sendMessage);
-                        Thread.sleep(1000);
-                    } catch (TelegramApiException e) {
-                        throw new RuntimeException(e);
+                        Thread.sleep(100);
                     } catch (InterruptedException e) {
                         throw new RuntimeException(e);
                     }
                 }
             }
         });
-        stts.setDaemon(true);
-        stts.start();
+        senderScheduleCurrencyRate.setDaemon(true);
+        senderScheduleCurrencyRate.start();
+
+        runningThreads.put(chatId, senderScheduleCurrencyRate);
     }
 
 }

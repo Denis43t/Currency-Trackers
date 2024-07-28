@@ -6,6 +6,7 @@ import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 public class Main {
     public static void main(String[] args) {
+        BotService botService=new BotService();
         try {
             String botToken =System.getenv("BOT_TOKEN");
             TelegramBotsLongPollingApplication botsApplication = new TelegramBotsLongPollingApplication();
