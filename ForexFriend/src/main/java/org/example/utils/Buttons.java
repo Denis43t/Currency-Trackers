@@ -1,11 +1,17 @@
 package org.example.utils;
 
+import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.methods.updatingmessages.EditMessageText;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMarkup;
+import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboardMarkup;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.InlineKeyboardButton;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.InlineKeyboardRow;
+import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.KeyboardRow;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import org.telegram.telegrambots.meta.generics.TelegramClient;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Buttons {
 
@@ -31,6 +37,47 @@ public class Buttons {
             case "settings_currency_both":
                 selectedCurrency = Currency.BOTH;
                 break;
+        }
+    }
+
+    public void sendCustomKeyboardTime(String chatId) {
+        SendMessage message = new SendMessage(chatId, "оберіть час оповіщення");
+
+        List<KeyboardRow> keyboard = new ArrayList<>();
+        ReplyKeyboardMarkup keyboardMarkup = new ReplyKeyboardMarkup(keyboard);
+
+
+        KeyboardRow row = new KeyboardRow();
+        row.add("9");
+        row.add("10");
+        row.add("11");
+        keyboard.add(row);
+
+        row = new KeyboardRow();
+        row.add("12");
+        row.add("13");
+        row.add("14");
+        keyboard.add(row);
+
+        row = new KeyboardRow();
+        row.add("15");
+        row.add("16");
+        row.add("17");
+        keyboard.add(row);
+
+        row = new KeyboardRow();
+        row.add("18");
+        row.add("ввимкнути повідомлення");
+        keyboard.add(row);
+
+        keyboardMarkup.setKeyboard(keyboard);
+
+        message.setReplyMarkup(keyboardMarkup);
+
+        try {
+            telegramClient.execute(message);
+        } catch (TelegramApiException e) {
+            e.printStackTrace();
         }
     }
 
