@@ -5,10 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2ab066f9-ace8-4f78-9656-d6487ecf99a3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/ForexFriend/src/main/java/org/example/properties/Constants.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForexFriend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ForexFriend/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForexFriend/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/ForexFriend/src/main/java/org/example/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ForexFriend/src/main/java/org/example/service/BotService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ForexFriend/src/main/java/org/example/service/BotService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -29,16 +26,46 @@
         <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "Denis43t"
+  }
+}]]></component>
+  <component name="GithubProjectSettings">
+    <option name="branchProtectionPatterns">
+      <list>
+        <option value="main" />
+      </list>
+    </option>
+  </component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/Denis43t/Currency-Trackers",
+    "accountId": "14e9d3fb-0cdf-488b-8d55-a725b8e64953"
+  }
+}]]></component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 5
+}]]></component>
+  <component name="ProjectId" id="2jqNbLrRemvegljlWJ5dgzt9Qoo" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ASKED_ADD_EXTERNAL_FILES": "true",
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Application.Main.executor": "Run",
-    "git-widget-placeholder": "TimeButton"
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "SendingNotifications",
+    "kotlin-language-version-configured": "true"
   }
 }]]></component>
   <component name="RunManager">
@@ -61,10 +88,19 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2ab066f9-ace8-4f78-9656-d6487ecf99a3" name="Changes" comment="" />
+      <created>1722110717857</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1722110717857</updated>
+    </task>
     <servers />
   </component>
   <component name="XDebuggerManager">
@@ -72,12 +108,17 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/ForexFriend/src/main/java/org/example/service/BotService.java</url>
-          <line>21</line>
-          <properties class="org.example.service.BotService" method="consume">
+          <line>26</line>
+          <properties class="org.example.service.BotService">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/ForexFriend/src/main/java/org/example/service/BotService.java</url>
+          <line>35</line>
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -78,4 +78,25 @@ public class BotService implements LongPollingSingleThreadUpdateConsumer {
             e.printStackTrace();
         }
     }
+
+    public void sst(SendMessage time, String chatId){
+        SendMessage sendMessage=new SendMessage("aaa",chatId);
+        Thread stts = new Thread(() -> {
+            while (true) {
+                if ("16".equals(time)){
+                    try {
+                        telegramClient.execute(sendMessage);
+                        Thread.sleep(1000);
+                    } catch (TelegramApiException e) {
+                        throw new RuntimeException(e);
+                    } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+            }
+        });
+        stts.setDaemon(true);
+        stts.start();
+    }
+
 }
