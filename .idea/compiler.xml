@@ -12,6 +12,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="Currency-Trackers" target="21" />
+      <module name="untitled" target="21" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
