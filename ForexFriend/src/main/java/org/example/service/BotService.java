@@ -17,7 +17,10 @@ import org.telegram.telegrambots.meta.generics.TelegramClient;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.concurrent.ConcurrentHashMap;
 
 import static java.lang.Math.toIntExact;
 
@@ -25,25 +28,42 @@ public class BotService implements LongPollingSingleThreadUpdateConsumer {
     private final TelegramClient telegramClient = new OkHttpTelegramClient
             (System.getenv("BOT_TOKEN"));
 
-    Buttons buttons =new Buttons(telegramClient);
+    Buttons buttons = new Buttons(telegramClient);
+
+    private HashMap<String, String> userSettings = new HashMap<>();
+
+    private ConcurrentHashMap<String, Thread> runningThreads = new ConcurrentHashMap<>();
+
+    private BankService bankApi = new BankService();
+
     @Override
     public void consume(Update update) {
         if (update.hasMessage() && update.getMessage().hasText()) {
 
             SendMessage sendMessage = new SendMessage(update.getMessage().getChatId().toString()
                     , update.getMessage().getText());
+
+            String messageText = update.getMessage().getText();
+
+            long chatId = update.getMessage().getChatId();
+
             //надає клавіатуру як що був веден час
             if (sendMessage.getText().equalsIgnoreCase("час")) {
                 buttons.sendCustomKeyboardTime(sendMessage.getChatId());
             }
-        }
+            userSettings.put(sendMessage.getChatId(), getTimeOfSendingNotifications(sendMessage));
 
-        if (update.hasMessage() && update.getMessage().hasText()) {
-            String messageText = update.getMessage().getText();
-            long chatId = update.getMessage().getChatId();
+            try {
+                scheduleSendingCurrencyRate(userSettings, sendMessage.getChatId());
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+
+
             if (messageText.equals("/start")) {
                 sendStartMessage(chatId);
             }
+
         } else if (update.hasCallbackQuery()) {
             String callData = update.getCallbackQuery().getData();
             long messageId = update.getCallbackQuery().getMessage().getMessageId();
@@ -66,12 +86,13 @@ public class BotService implements LongPollingSingleThreadUpdateConsumer {
                     }
                     break;
             }
+
         }
     }
 
     //перевіряє чи був введен час для свопіщення
-    public String getTimeOfSendingNotifications(SendMessage message){
-        if (Constants.variantsOfTime.stream().anyMatch(t->t.equals(message.getText()))){
+    public String getTimeOfSendingNotifications(SendMessage message) {
+        if (Constants.variantsOfTime.stream().anyMatch(t -> t.equals(message.getText()))) {
             return message.getText();
         }
         return "-1";
@@ -112,7 +133,7 @@ public class BotService implements LongPollingSingleThreadUpdateConsumer {
     private void sendExchangeRates(long chatId, long messageId) {
         String answer;
         try {
-            BankService bankApi = new BankService();
+
             answer = bankApi.getExchangeRates(buttons.getCurrency());
         } catch (IOException e) {
             answer = "Не вдалося отримати курс валют. Спробуйте пізніше.";
@@ -129,5 +150,45 @@ public class BotService implements LongPollingSingleThreadUpdateConsumer {
         } catch (TelegramApiException e) {
             e.printStackTrace();
         }
+    }
+
+    public void scheduleSendingCurrencyRate(HashMap userSettings, String chatId) throws IOException {
+        if (userSettings.get(chatId).equals("-1") || userSettings.get(chatId) == null) {
+            return;
+        }
+
+        if (runningThreads.containsKey(chatId) && runningThreads.get(chatId).isAlive()) {
+            return;
+        }
+
+        SendMessage sendMessage = new SendMessage(chatId, bankApi.getExchangeRates(buttons.getCurrency()));
+
+        Thread senderScheduleCurrencyRate = new Thread(() -> {
+            while (true) {
+                Date date = new Date();
+                String hours = String.valueOf(date.getHours());
+                if (hours.equals(userSettings.get(chatId))) {
+                    if (date.getMinutes() == 0) {
+                        try {
+                            telegramClient.execute(sendMessage);
+                            Thread.sleep(1000 * 60);
+                        } catch (TelegramApiException e) {
+                            throw new RuntimeException(e);
+                        } catch (InterruptedException e) {
+                            throw new RuntimeException(e);
+                        }
+                    }
+                    try {
+                        Thread.sleep(100);
+                    } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+            }
+        });
+        senderScheduleCurrencyRate.setDaemon(true);
+        senderScheduleCurrencyRate.start();
+
+        runningThreads.put(chatId, senderScheduleCurrencyRate);
     }
 }
