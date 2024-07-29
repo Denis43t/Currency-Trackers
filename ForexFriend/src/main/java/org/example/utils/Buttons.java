@@ -251,12 +251,4 @@ public class Buttons {
             e.printStackTrace();
         }
     }
-
-    public Currency getSelectedCurrency() {
-        return selectedCurrency;
-    }
-
-    public Banks getSelectedBanks() {
-        return selectedBanks;
-    }
 }
