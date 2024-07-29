@@ -23,9 +23,9 @@ import static java.lang.Math.toIntExact;
 public class BotService implements LongPollingSingleThreadUpdateConsumer {
     private final TelegramClient telegramClient = new OkHttpTelegramClient(System.getenv("BOT_TOKEN"));
     Buttons buttons = new Buttons(telegramClient);
-    private HashMap<String, String> userSettings = new HashMap<>();
-    private ConcurrentHashMap<String, Thread> runningThreads = new ConcurrentHashMap<>();
-    private BankService bankApi = new BankService();
+    private final HashMap<String, String> userSettings = new HashMap<>();
+    private final ConcurrentHashMap<String, Thread> runningThreads = new ConcurrentHashMap<>();
+    private final BankService bankApi = new BankService();
 
     @Override
     public void consume(Update update) {

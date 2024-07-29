@@ -44,14 +44,16 @@ public class Buttons {
     public void setBankSelection(String callData) {
         switch (callData) {
             case "settings_bank_nbu":
-                this.selectedBanks = Banks.NBU;
+                selectedBanks = Banks.NBU;
                 break;
             case "settings_bank_mono":
-                this.selectedBanks = Banks.MONO;
+                selectedBanks = Banks.MONO;
                 break;
             case "settings_bank_privat":
-                this.selectedBanks = Banks.PRIVAT;
+                selectedBanks = Banks.PRIVAT;
                 break;
+            default:
+                throw new IllegalStateException("Unexpected value: " + callData);
         }
     }
 
