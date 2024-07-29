@@ -167,4 +167,43 @@ public class Buttons {
             e.printStackTrace();
         }
     }
+
+    public void handleBanksySettings(long chatId, long messageId) {
+        InlineKeyboardButton button1 = InlineKeyboardButton.builder()
+                .text("НБУ")
+                .callbackData("settings_bank_nbu")
+                .build();
+
+        InlineKeyboardButton button2 = InlineKeyboardButton.builder()
+                .text("ПриватБанк")
+                .callbackData("settings_bank_privat")
+                .build();
+
+        InlineKeyboardButton button3 = InlineKeyboardButton.builder()
+                .text("Монобанк")
+                .callbackData("settings_bank_mono")
+                .build();
+
+        InlineKeyboardRow row1 = new InlineKeyboardRow();
+        row1.add(button1);
+        row1.add(button2);
+        row1.add(button3);
+
+        InlineKeyboardMarkup keyboardMarkup = InlineKeyboardMarkup.builder()
+                .keyboardRow(row1)
+                .build();
+
+        EditMessageText newMessage = EditMessageText.builder()
+                .chatId(chatId)
+                .messageId((int) messageId)
+                .text("Оберіть банк:")
+                .replyMarkup(keyboardMarkup)
+                .build();
+
+        try {
+            telegramClient.execute(newMessage);
+        } catch (TelegramApiException e) {
+            e.printStackTrace();
+        }
+    }
 }
