@@ -6,17 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="a0d4573c-8a22-47fb-a091-6ef2400ad659" name="Changes" comment="sendMessage replaced to Buttons">
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForexFriend/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForexFriend/src/main/java/org/example/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForexFriend/src/main/java/org/example/properties/Constants.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForexFriend/src/main/java/org/example/service/BankService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForexFriend/src/main/java/org/example/service/BotService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForexFriend/src/main/java/org/example/utils/Buttons.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForexFriend/src/main/java/org/example/utils/Currency.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,11 +51,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "mainArt",
-    "kotlin-language-version-configured": "true",
-    "onboarding.tips.debug.path": "C:/Users/akorn/Goit/ForexFriend/src/main/java/org/example/Main.java",
-    "project.structure.last.edited": "SDKs",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2"
+    "kotlin-language-version-configured": "true"
   }
 }]]></component>
   <component name="RunManager">
