@@ -61,7 +61,6 @@ public class Buttons {
         List<KeyboardRow> keyboard = new ArrayList<>();
         ReplyKeyboardMarkup keyboardMarkup = new ReplyKeyboardMarkup(keyboard);
 
-
         KeyboardRow row = new KeyboardRow();
         row.add("9");
         row.add("10");
@@ -95,6 +94,7 @@ public class Buttons {
             e.printStackTrace();
         }
     }
+
 
     public void handleSettings(long chatId, long messageId) {
         InlineKeyboardButton button1 = InlineKeyboardButton.builder()
