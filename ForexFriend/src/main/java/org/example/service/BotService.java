@@ -8,18 +8,14 @@ import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.methods.updatingmessages.EditMessageText;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMarkup;
-import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboardMarkup;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.InlineKeyboardButton;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.InlineKeyboardRow;
-import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.KeyboardRow;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import org.telegram.telegrambots.meta.generics.TelegramClient;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 
 import static java.lang.Math.toIntExact;
@@ -47,10 +43,7 @@ public class BotService implements LongPollingSingleThreadUpdateConsumer {
 
             long chatId = update.getMessage().getChatId();
 
-            //надає клавіатуру як що був веден час
-            if (sendMessage.getText().equalsIgnoreCase("час")) {
-                buttons.sendCustomKeyboardTime(sendMessage.getChatId());
-            }
+
             userSettings.put(sendMessage.getChatId(), getTimeOfSendingNotifications(sendMessage));
 
             try {
@@ -70,6 +63,7 @@ public class BotService implements LongPollingSingleThreadUpdateConsumer {
             long chatId = update.getCallbackQuery().getMessage().getChatId();
 
             switch (callData) {
+
                 case "update_msg_text":
                     sendExchangeRates(chatId, messageId);
                     break;
@@ -79,10 +73,22 @@ public class BotService implements LongPollingSingleThreadUpdateConsumer {
                 case "settings_currency":
                     buttons.handleCurrencySettings(chatId, messageId);
                     break;
+                case "settings_bank":
+                    buttons.handleBanksSettings(chatId, messageId, callData);
+                    break;
+                case "return_to_main_menu":
+                    sendStartMessage(chatId);
+                    break;
                 default:
                     if (callData.startsWith("settings_currency_")) {
                         buttons.setCurrencySelection(callData);
                         sendExchangeRates(chatId, messageId);
+                    }
+                    if (callData.startsWith("settings_bank_")) {
+                        buttons.handleBanksSettings(chatId, messageId, callData);
+                        if (!callData.equals("settings_bank_return_to_main_menu")) {
+                            buttons.setBankSelection(callData);
+                        }
                     }
                     break;
             }

@@ -2,9 +2,12 @@ package org.example.service;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.example.utils.Buttons;
 import org.example.utils.Currency;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.telegram.telegrambots.client.okhttp.OkHttpTelegramClient;
+import org.telegram.telegrambots.meta.generics.TelegramClient;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -13,8 +16,14 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Scanner;
 
+import static org.example.utils.Banks.*;
+
 public class BankService {
     private static final Logger logger = LoggerFactory.getLogger(BankService.class);
+
+    private final TelegramClient telegramClient = new OkHttpTelegramClient
+            (System.getenv("BOT_TOKEN"));
+
 
     private static final String PRIVAT_API_URL = "https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5";
     private static final String MONO_API_URL = "https://api.monobank.ua/bank/currency";
@@ -23,9 +32,22 @@ public class BankService {
     private static final int BASE_DELAY = 1000; // 1 second
 
     public String getExchangeRates(Currency currency) throws IOException {
+
         String privatRates = getPrivatBankRates(currency);
         String monoRates = getMonoBankRates();
         String nbuRates = getNbuRates(currency);
+        switch (Buttons.selectedBanks){
+            case NBU -> {
+                return nbuRates;
+            }
+            case PRIVAT -> {
+                return privatRates;
+            }
+            case MONO -> {
+                return monoRates;
+            }
+        }
+
 
         return "Курси валют:\n\n" + privatRates + "\n" + monoRates + "\n" + nbuRates;
     }

@@ -17,6 +17,7 @@ public class Buttons {
 
     private final TelegramClient telegramClient;
     private Currency selectedCurrency = Currency.BOTH;
+    public static Banks selectedBanks = Banks.MONO;
 
     public Buttons(TelegramClient telegramClient) {
         this.telegramClient = telegramClient;
@@ -36,6 +37,20 @@ public class Buttons {
                 break;
             case "settings_currency_both":
                 selectedCurrency = Currency.BOTH;
+                break;
+        }
+    }
+
+    public void setBankSelection(String callData) {
+        switch (callData) {
+            case "settings_bank_nbu":
+                this.selectedBanks = Banks.NBU;
+                break;
+            case "settings_bank_mono":
+                this.selectedBanks = Banks.MONO;
+                break;
+            case "settings_bank_privat":
+                this.selectedBanks = Banks.PRIVAT;
                 break;
         }
     }
@@ -168,7 +183,7 @@ public class Buttons {
         }
     }
 
-    public void handleBanksySettings(long chatId, long messageId) {
+    public void handleBanksSettings(long chatId, long messageId, String callData) {
         InlineKeyboardButton button1 = InlineKeyboardButton.builder()
                 .text("НБУ")
                 .callbackData("settings_bank_nbu")
@@ -183,14 +198,44 @@ public class Buttons {
                 .text("Монобанк")
                 .callbackData("settings_bank_mono")
                 .build();
+        InlineKeyboardButton button4 = InlineKeyboardButton.builder()
+                .text("Повернутися в головне меню")
+                .callbackData("return_to_main_menu")
+                .build();
+
+
+        switch (callData) {
+            case "settings_bank_nbu":
+                button1 = InlineKeyboardButton.builder()
+                        .text("НБУ✅")
+                        .callbackData("settings_bank_nbu")
+                        .build();
+                break;
+            case "settings_bank_mono":
+                button3 = InlineKeyboardButton.builder()
+                        .text("Монобанк✅")
+                        .callbackData("settings_bank_mono")
+                        .build();
+                break;
+            case "settings_bank_privat":
+                button2 = InlineKeyboardButton.builder()
+                        .text("ПриватБанк✅")
+                        .callbackData("settings_bank_privat")
+                        .build();
+                break;
+        }
+
 
         InlineKeyboardRow row1 = new InlineKeyboardRow();
         row1.add(button1);
         row1.add(button2);
         row1.add(button3);
+        InlineKeyboardRow row2=new InlineKeyboardRow();
+        row2.add(button4);
 
         InlineKeyboardMarkup keyboardMarkup = InlineKeyboardMarkup.builder()
                 .keyboardRow(row1)
+                .keyboardRow(row2)
                 .build();
 
         EditMessageText newMessage = EditMessageText.builder()
@@ -205,5 +250,13 @@ public class Buttons {
         } catch (TelegramApiException e) {
             e.printStackTrace();
         }
+    }
+
+    public Currency getSelectedCurrency() {
+        return selectedCurrency;
+    }
+
+    public Banks getSelectedBanks() {
+        return selectedBanks;
     }
 }
