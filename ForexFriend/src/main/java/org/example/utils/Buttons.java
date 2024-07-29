@@ -144,7 +144,7 @@ public class Buttons {
         }
     }
 
-    public void handleCurrencySettings(long chatId, long messageId) {
+    public void handleCurrencySettings(long chatId, long messageId, String callData) {
         InlineKeyboardButton button1 = InlineKeyboardButton.builder()
                 .text("USD")
                 .callbackData("settings_currency_usd")
@@ -160,13 +160,43 @@ public class Buttons {
                 .callbackData("settings_currency_both")
                 .build();
 
+        InlineKeyboardButton button4 = InlineKeyboardButton.builder()
+                .text("Повернутися в головне меню")
+                .callbackData("return_to_main_menu")
+                .build();
+
+        switch (callData) {
+            case "settings_currency_usd":
+                button1 = InlineKeyboardButton.builder()
+                        .text("USD✅")
+                        .callbackData("settings_currency_usd")
+                        .build();
+                break;
+            case "settings_currency_eur":
+                button2 = InlineKeyboardButton.builder()
+                        .text("EUR✅")
+                        .callbackData("settings_currency_eur")
+                        .build();
+                break;
+            case "settings_currency_both":
+                button3 = InlineKeyboardButton.builder()
+                        .text("Both✅")
+                        .callbackData("settings_currency_both")
+                        .build();
+                break;
+        }
+
         InlineKeyboardRow row1 = new InlineKeyboardRow();
         row1.add(button1);
         row1.add(button2);
         row1.add(button3);
 
+        InlineKeyboardRow row2 = new InlineKeyboardRow();
+        row2.add(button4);
+
         InlineKeyboardMarkup keyboardMarkup = InlineKeyboardMarkup.builder()
                 .keyboardRow(row1)
+                .keyboardRow(row2)
                 .build();
 
         EditMessageText newMessage = EditMessageText.builder()
@@ -182,6 +212,7 @@ public class Buttons {
             e.printStackTrace();
         }
     }
+
 
     public void handleBanksSettings(long chatId, long messageId, String callData) {
         InlineKeyboardButton button1 = InlineKeyboardButton.builder()

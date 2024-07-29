@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a0d4573c-8a22-47fb-a091-6ef2400ad659" name="Changes" comment="Merge remote-tracking branch 'origin/mainArt' into mainArt&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+    <list default="true" id="a0d4573c-8a22-47fb-a091-6ef2400ad659" name="Changes" comment="час сповіщень">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ForexFriend/src/main/java/org/example/service/BotService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ForexFriend/src/main/java/org/example/service/BotService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ForexFriend/src/main/java/org/example/utils/Buttons.java" beforeDir="false" afterPath="$PROJECT_DIR$/ForexFriend/src/main/java/org/example/utils/Buttons.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,12 +108,22 @@
       <option name="project" value="LOCAL" />
       <updated>1722166965538</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="час сповіщень">
+      <option name="closed" value="true" />
+      <created>1722280349265</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1722280349265</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="repaired worspace xml" />
     <MESSAGE value="sendMessage replaced to Buttons" />
-    <option name="LAST_COMMIT_MESSAGE" value="sendMessage replaced to Buttons" />
+    <MESSAGE value="some trash deleted" />
+    <MESSAGE value="час сповіщень" />
+    <option name="LAST_COMMIT_MESSAGE" value="час сповіщень" />
   </component>
 </project>

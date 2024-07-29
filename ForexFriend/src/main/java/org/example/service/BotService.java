@@ -32,6 +32,7 @@ public class BotService implements LongPollingSingleThreadUpdateConsumer {
 
     private BankService bankApi = new BankService();
 
+    // In the BotService class
     @Override
     public void consume(Update update) {
         if (update.hasMessage() && update.getMessage().hasText()) {
@@ -68,13 +69,10 @@ public class BotService implements LongPollingSingleThreadUpdateConsumer {
                     buttons.handleSettings(chatId, messageId);
                     break;
                 case "settings_currency":
-                    buttons.handleCurrencySettings(chatId, messageId);
+                    buttons.handleCurrencySettings(chatId, messageId, callData);
                     break;
                 case "settings_bank":
                     buttons.handleBanksSettings(chatId, messageId, callData);
-                    break;
-                case "settings_notification_time":  // New case for notification time
-                    buttons.sendCustomKeyboardTime(String.valueOf(chatId));
                     break;
                 case "return_to_main_menu":
                     sendStartMessage(chatId);
@@ -82,7 +80,7 @@ public class BotService implements LongPollingSingleThreadUpdateConsumer {
                 default:
                     if (callData.startsWith("settings_currency_")) {
                         buttons.setCurrencySelection(callData);
-                        sendExchangeRates(chatId, messageId);
+                        buttons.handleCurrencySettings(chatId, messageId, callData);
                     }
                     if (callData.startsWith("settings_bank_")) {
                         buttons.handleBanksSettings(chatId, messageId, callData);
