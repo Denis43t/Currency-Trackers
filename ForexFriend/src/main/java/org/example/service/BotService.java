@@ -43,7 +43,6 @@ public class BotService implements LongPollingSingleThreadUpdateConsumer {
 
             long chatId = update.getMessage().getChatId();
 
-
             userSettings.put(sendMessage.getChatId(), getTimeOfSendingNotifications(sendMessage));
 
             try {
@@ -51,7 +50,6 @@ public class BotService implements LongPollingSingleThreadUpdateConsumer {
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
-
 
             if (messageText.equals("/start")) {
                 sendStartMessage(chatId);
@@ -63,7 +61,6 @@ public class BotService implements LongPollingSingleThreadUpdateConsumer {
             long chatId = update.getCallbackQuery().getMessage().getChatId();
 
             switch (callData) {
-
                 case "update_msg_text":
                     sendExchangeRates(chatId, messageId);
                     break;
@@ -75,6 +72,9 @@ public class BotService implements LongPollingSingleThreadUpdateConsumer {
                     break;
                 case "settings_bank":
                     buttons.handleBanksSettings(chatId, messageId, callData);
+                    break;
+                case "settings_notification_time":  // New case for notification time
+                    buttons.sendCustomKeyboardTime(String.valueOf(chatId));
                     break;
                 case "return_to_main_menu":
                     sendStartMessage(chatId);
@@ -92,9 +92,9 @@ public class BotService implements LongPollingSingleThreadUpdateConsumer {
                     }
                     break;
             }
-
         }
     }
+
 
     //перевіряє чи був введен час для свопіщення
     public String getTimeOfSendingNotifications(SendMessage message) {
