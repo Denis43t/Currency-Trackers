@@ -84,7 +84,6 @@ public class BotService implements LongPollingSingleThreadUpdateConsumer {
         }
     }
 
-    //перевіряє чи був введен час для свопіщення
     public String getTimeOfSendingNotifications(SendMessage message) {
         if (Constants.variantsOfTime.stream().anyMatch(t -> t.equals(message.getText()))) {
             return message.getText();
@@ -133,11 +132,25 @@ public class BotService implements LongPollingSingleThreadUpdateConsumer {
             e.printStackTrace();
         }
 
+        InlineKeyboardButton mainMenuButton = InlineKeyboardButton.builder()
+                .text("Повернутися в головне меню")
+                .callbackData("return_to_main_menu")
+                .build();
+
+        InlineKeyboardRow row = new InlineKeyboardRow();
+        row.add(mainMenuButton);
+
+        InlineKeyboardMarkup keyboardMarkup = InlineKeyboardMarkup.builder()
+                .keyboardRow(row)
+                .build();
+
         EditMessageText newMessage = EditMessageText.builder()
                 .chatId(chatId)
                 .messageId(toIntExact(messageId))
                 .text(answer)
+                .replyMarkup(keyboardMarkup)
                 .build();
+
         try {
             telegramClient.execute(newMessage);
         } catch (TelegramApiException e) {
@@ -145,7 +158,7 @@ public class BotService implements LongPollingSingleThreadUpdateConsumer {
         }
     }
 
-    public void scheduleSendingCurrencyRate(HashMap userSettings, String chatId) throws IOException {
+    public void scheduleSendingCurrencyRate(HashMap<String, String> userSettings, String chatId) throws IOException {
         if (userSettings.get(chatId).equals("-1") || userSettings.get(chatId) == null) {
             return;
         }
@@ -165,9 +178,7 @@ public class BotService implements LongPollingSingleThreadUpdateConsumer {
                         try {
                             telegramClient.execute(sendMessage);
                             Thread.sleep(1000 * 60);
-                        } catch (TelegramApiException e) {
-                            throw new RuntimeException(e);
-                        } catch (InterruptedException e) {
+                        } catch (TelegramApiException | InterruptedException e) {
                             throw new RuntimeException(e);
                         }
                     }

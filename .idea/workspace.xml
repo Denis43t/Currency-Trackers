@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a0d4573c-8a22-47fb-a091-6ef2400ad659" name="Changes" comment="add currency">
+    <list default="true" id="a0d4573c-8a22-47fb-a091-6ef2400ad659" name="Changes" comment="Зміна роботи МОНО">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForexFriend/src/main/java/org/example/service/BankService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ForexFriend/src/main/java/org/example/service/BankService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ForexFriend/src/main/java/org/example/service/BotService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ForexFriend/src/main/java/org/example/service/BotService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -139,7 +139,15 @@
       <option name="project" value="LOCAL" />
       <updated>1722284971426</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Зміна роботи МОНО">
+      <option name="closed" value="true" />
+      <created>1722348226553</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1722348226554</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -148,6 +156,7 @@
     <MESSAGE value="some trash deleted" />
     <MESSAGE value="час сповіщень" />
     <MESSAGE value="add currency" />
-    <option name="LAST_COMMIT_MESSAGE" value="add currency" />
+    <MESSAGE value="Зміна роботи МОНО" />
+    <option name="LAST_COMMIT_MESSAGE" value="Зміна роботи МОНО" />
   </component>
 </project>
