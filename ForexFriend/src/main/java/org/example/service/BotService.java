@@ -21,29 +21,18 @@ import java.util.concurrent.ConcurrentHashMap;
 import static java.lang.Math.toIntExact;
 
 public class BotService implements LongPollingSingleThreadUpdateConsumer {
-    private final TelegramClient telegramClient = new OkHttpTelegramClient
-            (System.getenv("BOT_TOKEN"));
-
+    private final TelegramClient telegramClient = new OkHttpTelegramClient(System.getenv("BOT_TOKEN"));
     Buttons buttons = new Buttons(telegramClient);
-
-    private HashMap<String, String> userSettings = new HashMap<>();
-
-    private ConcurrentHashMap<String, Thread> runningThreads = new ConcurrentHashMap<>();
-
-    private BankService bankApi = new BankService();
+    private final HashMap<String, String> userSettings = new HashMap<>();
+    private final ConcurrentHashMap<String, Thread> runningThreads = new ConcurrentHashMap<>();
+    private final BankService bankApi = new BankService();
 
     @Override
     public void consume(Update update) {
         if (update.hasMessage() && update.getMessage().hasText()) {
-
-            SendMessage sendMessage = new SendMessage(update.getMessage().getChatId().toString()
-                    , update.getMessage().getText());
-
+            SendMessage sendMessage = new SendMessage(update.getMessage().getChatId().toString(), update.getMessage().getText());
             String messageText = update.getMessage().getText();
-
             long chatId = update.getMessage().getChatId();
-
-
             userSettings.put(sendMessage.getChatId(), getTimeOfSendingNotifications(sendMessage));
 
             try {
@@ -52,18 +41,15 @@ public class BotService implements LongPollingSingleThreadUpdateConsumer {
                 throw new RuntimeException(e);
             }
 
-
             if (messageText.equals("/start")) {
                 sendStartMessage(chatId);
             }
-
         } else if (update.hasCallbackQuery()) {
             String callData = update.getCallbackQuery().getData();
             long messageId = update.getCallbackQuery().getMessage().getMessageId();
             long chatId = update.getCallbackQuery().getMessage().getChatId();
 
             switch (callData) {
-
                 case "update_msg_text":
                     sendExchangeRates(chatId, messageId);
                     break;
@@ -71,10 +57,13 @@ public class BotService implements LongPollingSingleThreadUpdateConsumer {
                     buttons.handleSettings(chatId, messageId);
                     break;
                 case "settings_currency":
-                    buttons.handleCurrencySettings(chatId, messageId);
+                    buttons.handleCurrencySettings(chatId, messageId, callData);
                     break;
                 case "settings_bank":
                     buttons.handleBanksSettings(chatId, messageId, callData);
+                    break;
+                case "settings_notification_time":
+                    buttons.sendCustomKeyboardTime(String.valueOf(chatId));
                     break;
                 case "return_to_main_menu":
                     sendStartMessage(chatId);
@@ -82,7 +71,7 @@ public class BotService implements LongPollingSingleThreadUpdateConsumer {
                 default:
                     if (callData.startsWith("settings_currency_")) {
                         buttons.setCurrencySelection(callData);
-                        sendExchangeRates(chatId, messageId);
+                        buttons.handleCurrencySettings(chatId, messageId, callData);
                     }
                     if (callData.startsWith("settings_bank_")) {
                         buttons.handleBanksSettings(chatId, messageId, callData);
@@ -92,7 +81,6 @@ public class BotService implements LongPollingSingleThreadUpdateConsumer {
                     }
                     break;
             }
-
         }
     }
 
@@ -139,7 +127,6 @@ public class BotService implements LongPollingSingleThreadUpdateConsumer {
     private void sendExchangeRates(long chatId, long messageId) {
         String answer;
         try {
-
             answer = bankApi.getExchangeRates(buttons.getCurrency());
         } catch (IOException e) {
             answer = "Не вдалося отримати курс валют. Спробуйте пізніше.";

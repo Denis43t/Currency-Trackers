@@ -7,11 +7,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="ForexFriend" />
+        <module name="ForexFriend (1)" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="Currency-Trackers" target="21" />
-      <module name="ForexFriend (1)" target="21" />
+      <module name="ForexFriend (2)" target="21" />
       <module name="untitled" target="21" />
     </bytecodeTargetLevel>
   </component>
