@@ -56,6 +56,9 @@ public class BotService implements LongPollingSingleThreadUpdateConsumer {
                 case "settings":
                     buttons.handleSettings(chatId, messageId);
                     break;
+                case "settings_precision":
+                    buttons.handlePrecisionSettings(chatId, messageId, callData);
+                    break;
                 case "settings_currency":
                     buttons.handleCurrencySettings(chatId, messageId, callData);
                     break;
@@ -79,10 +82,18 @@ public class BotService implements LongPollingSingleThreadUpdateConsumer {
                             buttons.setBankSelection(callData);
                         }
                     }
+                    if (callData.startsWith("settings_precision_")) {
+                        // Save selected precision for both Buy and Sale
+                        userSettings.put(chatId + "_precision", callData);
+                        buttons.handlePrecisionSettings(chatId, messageId, callData);
+                    }
                     break;
             }
         }
     }
+
+
+
 
     public String getTimeOfSendingNotifications(SendMessage message) {
         if (Constants.variantsOfTime.stream().anyMatch(t -> t.equals(message.getText()))) {

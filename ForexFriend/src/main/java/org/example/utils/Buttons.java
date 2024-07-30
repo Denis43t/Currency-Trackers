@@ -284,4 +284,126 @@ public class Buttons {
             e.printStackTrace();
         }
     }
+    public void handlePrecisionSettings(long chatId, long messageId, String callData) {
+        // Кнопки для вибору кількості знаків після коми
+        InlineKeyboardButton button0 = InlineKeyboardButton.builder()
+                .text("0 знаків")
+                .callbackData("settings_precision_0")
+                .build();
+
+        InlineKeyboardButton button1 = InlineKeyboardButton.builder()
+                .text("1 знак")
+                .callbackData("settings_precision_1")
+                .build();
+
+        InlineKeyboardButton button2 = InlineKeyboardButton.builder()
+                .text("2 знаки")
+                .callbackData("settings_precision_2")
+                .build();
+
+        InlineKeyboardButton button3 = InlineKeyboardButton.builder()
+                .text("3 знаки")
+                .callbackData("settings_precision_3")
+                .build();
+
+        InlineKeyboardButton button4 = InlineKeyboardButton.builder()
+                .text("4 знаки")
+                .callbackData("settings_precision_4")
+                .build();
+
+        InlineKeyboardButton button5 = InlineKeyboardButton.builder()
+                .text("5 знаків")
+                .callbackData("settings_precision_5")
+                .build();
+
+        InlineKeyboardButton button6 = InlineKeyboardButton.builder()
+                .text("6 знаків")
+                .callbackData("settings_precision_6")
+                .build();
+
+        InlineKeyboardButton returnButton = InlineKeyboardButton.builder()
+                .text("Повернутися в головне меню")
+                .callbackData("return_to_main_menu")
+                .build();
+
+        // Позначення вибраної кнопки
+        switch (callData) {
+            case "settings_precision_0":
+                button0 = InlineKeyboardButton.builder()
+                        .text("0 знаків ✅")
+                        .callbackData("settings_precision_0")
+                        .build();
+                break;
+            case "settings_precision_1":
+                button1 = InlineKeyboardButton.builder()
+                        .text("1 знак ✅")
+                        .callbackData("settings_precision_1")
+                        .build();
+                break;
+            case "settings_precision_2":
+                button2 = InlineKeyboardButton.builder()
+                        .text("2 знаки ✅")
+                        .callbackData("settings_precision_2")
+                        .build();
+                break;
+            case "settings_precision_3":
+                button3 = InlineKeyboardButton.builder()
+                        .text("3 знаки ✅")
+                        .callbackData("settings_precision_3")
+                        .build();
+                break;
+            case "settings_precision_4":
+                button4 = InlineKeyboardButton.builder()
+                        .text("4 знаки ✅")
+                        .callbackData("settings_precision_4")
+                        .build();
+                break;
+            case "settings_precision_5":
+                button5 = InlineKeyboardButton.builder()
+                        .text("5 знаків ✅")
+                        .callbackData("settings_precision_5")
+                        .build();
+                break;
+            case "settings_precision_6":
+                button6 = InlineKeyboardButton.builder()
+                        .text("6 знаків ✅")
+                        .callbackData("settings_precision_6")
+                        .build();
+                break;
+        }
+
+        InlineKeyboardRow row1 = new InlineKeyboardRow();
+        row1.add(button0);
+        row1.add(button1);
+        row1.add(button2);
+
+        InlineKeyboardRow row2 = new InlineKeyboardRow();
+        row2.add(button3);
+        row2.add(button4);
+        row2.add(button5);
+        row2.add(button6);
+
+        InlineKeyboardRow row3 = new InlineKeyboardRow();
+        row3.add(returnButton);
+
+        InlineKeyboardMarkup keyboardMarkup = InlineKeyboardMarkup.builder()
+                .keyboardRow(row1)
+                .keyboardRow(row2)
+                .keyboardRow(row3)
+                .build();
+
+        EditMessageText newMessage = EditMessageText.builder()
+                .chatId(chatId)
+                .messageId((int) messageId)
+                .text("Оберіть кількість знаків після коми:")
+                .replyMarkup(keyboardMarkup)
+                .build();
+
+        try {
+            telegramClient.execute(newMessage);
+        } catch (TelegramApiException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
