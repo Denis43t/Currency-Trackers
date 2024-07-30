@@ -18,6 +18,7 @@ public class Buttons {
     private final TelegramClient telegramClient;
     private Currency selectedCurrency = Currency.BOTH;
     public static Banks selectedBanks = Banks.MONO;
+    public static Integer symbolAfterComma = 0;
 
     public Buttons(TelegramClient telegramClient) {
         this.telegramClient = telegramClient;
@@ -51,6 +52,33 @@ public class Buttons {
                 break;
             case "settings_bank_privat":
                 selectedBanks = Banks.PRIVAT;
+                break;
+            default:
+                throw new IllegalStateException("Unexpected value: " + callData);
+        }
+    }
+    public void setSymbolAfterComma(String callData) {
+        switch (callData) {
+            case "settings_precision_0":
+                symbolAfterComma = 0;
+                break;
+            case "settings_precision_1":
+                symbolAfterComma = 1;
+                break;
+            case "settings_precision_2":
+                symbolAfterComma = 2;
+                break;
+            case "settings_precision_3":
+                symbolAfterComma = 3;
+                break;
+            case "settings_precision_4":
+                symbolAfterComma = 4;
+                break;
+            case "settings_precision_5":
+                symbolAfterComma = 5;
+                break;
+            case "settings_precision_6":
+                symbolAfterComma = 6;
                 break;
             default:
                 throw new IllegalStateException("Unexpected value: " + callData);

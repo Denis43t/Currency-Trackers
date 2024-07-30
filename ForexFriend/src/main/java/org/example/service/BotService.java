@@ -78,14 +78,11 @@ public class BotService implements LongPollingSingleThreadUpdateConsumer {
                     }
                     if (callData.startsWith("settings_bank_")) {
                         buttons.handleBanksSettings(chatId, messageId, callData);
-                        if (!callData.equals("settings_bank_return_to_main_menu")) {
-                            buttons.setBankSelection(callData);
-                        }
+                        buttons.setBankSelection(callData);
                     }
                     if (callData.startsWith("settings_precision_")) {
-                        // Save selected precision for both Buy and Sale
-                        userSettings.put(chatId + "_precision", callData);
                         buttons.handlePrecisionSettings(chatId, messageId, callData);
+                        buttons.setSymbolAfterComma(callData);
                     }
                     break;
             }

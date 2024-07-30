@@ -67,11 +67,13 @@
 }</component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="21" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <envs>
         <env name="BOT_TOKEN" value="7409037172:AAF_-HAE_QCbnirDpo1OGg9YNZpH304sBcI" />
       </envs>
       <option name="MAIN_CLASS_NAME" value="org.example.Main" />
-      <module name="ForexFriend (1)" />
+      <module name="ForexFriend" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="org.example.*" />
@@ -84,6 +86,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.Main" />
