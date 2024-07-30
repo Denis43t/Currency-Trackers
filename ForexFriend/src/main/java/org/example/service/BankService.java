@@ -217,21 +217,25 @@ public class BankService {
     private static String cut(String text, int index) {
         char[] chars = text.toCharArray();
         int toComma = 0;
-        StringBuffer result = new StringBuffer();
+
+        StringBuilder result = new StringBuilder("");
 
 
         while (chars[toComma] != '.') {
             result.append(chars[toComma]);
             toComma++;
         }
-        if (chars.length - toComma < index) {
+        if (chars.length - (toComma+1) < index) {
             for (int i = toComma; i < chars.length; i++) {
                 result.append(chars[i]);
             }
             return result.toString();
         }
-        for (int l = toComma + 1; l < index; l++) {
-            result.append(chars[l]);
+        result.append('.');
+        toComma++;
+        for (int l = 0; l < index; l++) {
+            result.append(chars[toComma]);
+            toComma++;
         }
         return result.toString();
     }

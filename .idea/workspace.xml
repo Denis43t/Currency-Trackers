@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="a0d4573c-8a22-47fb-a091-6ef2400ad659" name="Changes" comment="some trash deleted">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ForexFriend/src/main/java/org/example/service/BankService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ForexFriend/src/main/java/org/example/service/BankService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -141,40 +142,40 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/ForexFriend/src/main/java/org/example/utils/Buttons.java</url>
-          <line>43</line>
-          <properties class="org.example.utils.Buttons">
+          <line>44</line>
+          <properties class="org.example.utils.Buttons" method="setBankSelection">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/ForexFriend/src/main/java/org/example/service/BotService.java</url>
-          <line>35</line>
-          <properties class="org.example.service.BotService">
+          <url>file://$PROJECT_DIR$/ForexFriend/src/main/java/org/example/service/BankService.java</url>
+          <line>216</line>
+          <properties class="org.example.service.BankService" method="cut">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
-          <option name="timeStamp" value="8" />
+          <option name="timeStamp" value="17" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/ForexFriend/src/main/java/org/example/utils/Buttons.java</url>
-          <line>147</line>
+          <line>175</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/ForexFriend/src/main/java/org/example/service/BotService.java</url>
-          <line>87</line>
+          <line>95</line>
           <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/ForexFriend/src/main/java/org/example/service/BotService.java</url>
-          <line>77</line>
+          <line>80</line>
           <option name="timeStamp" value="13" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/ForexFriend/src/main/java/org/example/service/BotService.java</url>
-          <line>64</line>
+          <line>67</line>
           <option name="timeStamp" value="14" />
         </line-breakpoint>
       </breakpoints>
