@@ -34,7 +34,7 @@ public class BankService {
     public String getExchangeRates(Currency currency) throws IOException {
 
         String privatRates = getPrivatBankRates(currency);
-        String monoRates = getMonoBankRates();
+        String monoRates = getMonoBankRates(currency);
         String nbuRates = getNbuRates(currency);
         switch (Buttons.selectedBanks){
             case NBU -> {
@@ -88,7 +88,7 @@ public class BankService {
         return rates.toString();
     }
 
-    private String getMonoBankRates() throws IOException {
+    private String getMonoBankRates(Currency currency) throws IOException {
         int attempts = 0;
         while (attempts < MAX_RETRIES) {
             try {
@@ -118,7 +118,15 @@ public class BankService {
 
                         if (currencyCodeB == 980) { // UAH
                             String ccy = getCurrencyCode(currencyCodeA);
-                            if ("USD".equals(ccy) || "EUR".equals(ccy)) {
+                            boolean shouldAdd = false;
+                            if (currency == Currency.BOTH) {
+                                shouldAdd = "USD".equals(ccy) || "EUR".equals(ccy);
+                            } else if (currency == Currency.USD) {
+                                shouldAdd = "USD".equals(ccy);
+                            } else if (currency == Currency.EUR) {
+                                shouldAdd = "EUR".equals(ccy);
+                            }
+                            if (shouldAdd) {
                                 rates.append(ccy)
                                         .append(": Buy = ")
                                         .append(node.has("rateBuy") ? node.get("rateBuy").asText() : "N/A")
@@ -144,6 +152,7 @@ public class BankService {
         }
         throw new RuntimeException("Failed to fetch data from MonoBank after " + MAX_RETRIES + " attempts");
     }
+
 
     private String getNbuRates(Currency currency) throws IOException {
         int attempts = 0;
