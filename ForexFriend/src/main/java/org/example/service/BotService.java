@@ -56,6 +56,9 @@ public class BotService implements LongPollingSingleThreadUpdateConsumer {
                 case "settings":
                     buttons.handleSettings(chatId, messageId);
                     break;
+                case "settings_precision":
+                    buttons.handlePrecisionSettings(chatId, messageId, callData);
+                    break;
                 case "settings_currency":
                     buttons.handleCurrencySettings(chatId, messageId, callData);
                     break;
@@ -75,14 +78,19 @@ public class BotService implements LongPollingSingleThreadUpdateConsumer {
                     }
                     if (callData.startsWith("settings_bank_")) {
                         buttons.handleBanksSettings(chatId, messageId, callData);
-                        if (!callData.equals("settings_bank_return_to_main_menu")) {
-                            buttons.setBankSelection(callData);
-                        }
+                        buttons.setBankSelection(callData);
+                    }
+                    if (callData.startsWith("settings_precision_")) {
+                        buttons.handlePrecisionSettings(chatId, messageId, callData);
+                        buttons.setSymbolAfterComma(callData);
                     }
                     break;
             }
         }
     }
+
+
+
 
     public String getTimeOfSendingNotifications(SendMessage message) {
         if (Constants.variantsOfTime.stream().anyMatch(t -> t.equals(message.getText()))) {

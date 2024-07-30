@@ -21,10 +21,6 @@ import static org.example.utils.Banks.*;
 public class BankService {
     private static final Logger logger = LoggerFactory.getLogger(BankService.class);
 
-    private final TelegramClient telegramClient = new OkHttpTelegramClient
-            (System.getenv("BOT_TOKEN"));
-
-
     private static final String PRIVAT_API_URL = "https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5";
     private static final String MONO_API_URL = "https://api.monobank.ua/bank/currency";
     private static final String NBU_API_URL = "https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?json";
@@ -36,7 +32,7 @@ public class BankService {
         String privatRates = getPrivatBankRates(currency);
         String monoRates = getMonoBankRates(currency);
         String nbuRates = getNbuRates(currency);
-        switch (Buttons.selectedBanks){
+        switch (Buttons.selectedBanks) {
             case NBU -> {
                 return nbuRates;
             }
@@ -49,7 +45,7 @@ public class BankService {
         }
 
 
-        return "Курси валют:\n\n" + privatRates + "\n" + monoRates + "\n" + nbuRates;
+        return "якась помилка, спробуйте пізніше";
     }
 
     private String getPrivatBankRates(Currency currency) throws IOException {
@@ -79,9 +75,9 @@ public class BankService {
             if (currency == Currency.BOTH || (currency == Currency.USD && ccy.equals("USD")) || (currency == Currency.EUR && ccy.equals("EUR"))) {
                 rates.append(ccy)
                         .append(": Buy = ")
-                        .append(node.get("buy").asText())
+                        .append(cut(node.get("buy").asText(), Buttons.symbolAfterComma))
                         .append(", Sale = ")
-                        .append(node.get("sale").asText())
+                        .append(cut(node.get("sale").asText(), Buttons.symbolAfterComma))
                         .append("\n");
             }
         }
@@ -129,9 +125,11 @@ public class BankService {
                             if (shouldAdd) {
                                 rates.append(ccy)
                                         .append(": Buy = ")
-                                        .append(node.has("rateBuy") ? node.get("rateBuy").asText() : "N/A")
+                                        .append(node.has("rateBuy") ? cut(node.get("rateBuy").asText(), Buttons
+                                                .symbolAfterComma) : "N/A")
                                         .append(", Sale = ")
-                                        .append(node.has("rateSell") ? node.get("rateSell").asText() : "N/A")
+                                        .append(node.has("rateSell") ? cut(node.get("rateSell").asText(), Buttons
+                                                .symbolAfterComma) : "N/A")
                                         .append("\n");
                             }
                         }
@@ -183,7 +181,7 @@ public class BankService {
                                 (currency == Currency.EUR && ccy.equals("EUR"))) {
                             rates.append(ccy)
                                     .append(": Rate = ")
-                                    .append(node.get("rate").asText())
+                                    .append(cut(node.get("rate").asText(), Buttons.symbolAfterComma))
                                     .append("\n");
                         }
                     }
@@ -215,4 +213,27 @@ public class BankService {
                 return "UNKNOWN";
         }
     }
+
+    private static String cut(String text, int index) {
+        char[] chars = text.toCharArray();
+        int toComma = 0;
+        StringBuffer result = new StringBuffer();
+
+
+        while (chars[toComma] != '.') {
+            result.append(chars[toComma]);
+            toComma++;
+        }
+        if (chars.length - toComma < index) {
+            for (int i = toComma; i < chars.length; i++) {
+                result.append(chars[i]);
+            }
+            return result.toString();
+        }
+        for (int l = toComma + 1; l < index; l++) {
+            result.append(chars[l]);
+        }
+        return result.toString();
+    }
 }
+
